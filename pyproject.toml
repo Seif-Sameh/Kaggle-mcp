@@ -1,0 +1,16 @@
+[project]
+name = "kaggle-mcp"
+version = "0.1.0"
+description = "A Model Context Protocol (MCP) server for the Kaggle API"
+readme = "README.md"
+requires-python = ">=3.10"
+
+# Core dependencies needed to run the MCP server
+dependencies = [
+    "kaggle>=1.7.4.5",
+    "fastmcp>=0.1.0",
+    "python-dotenv>=1.0.0"
+]
+
+[tool.uv]
+
