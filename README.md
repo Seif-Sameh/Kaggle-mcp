@@ -20,8 +20,8 @@ A Model Context Protocol (MCP) server that provides seamless integration with th
 ### Install from Source
 
 ```bash
-git clone https://github.com/Seif-Sameh/kaggle-mcp.git
-cd kaggle-mcp
+git clone https://github.com/Seif-Sameh/Kaggle-mcp.git
+cd Kaggle-mcp
 ```
 
 ## Setup
@@ -79,7 +79,7 @@ The recommended way to use Kaggle MCP is with Claude Desktop.
       "command": "uv",
       "args": [
         "--directory",
-        "/ABSOLUTE/PATH/TO/kaggle-mcp",
+        "/ABSOLUTE/PATH/TO/Kaggle-mcp",
         "run",
         "kaggle_mcp/server.py"
       ],
