@@ -1,27 +1,51 @@
 # Kaggle MCP Server
 
+<!-- mcp-name: io.github.Seif-Sameh/Kaggle-mcp -->
+
+[![PyPI](https://img.shields.io/pypi/v/mcp-server-kaggle.svg)](https://pypi.org/project/mcp-server-kaggle/)
+[![MCP Registry](https://img.shields.io/badge/MCP-registry-blue)](https://registry.modelcontextprotocol.io/v0.1/servers?search=io.github.Seif-Sameh/Kaggle-mcp)
+[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](LICENSE)
+
 A Model Context Protocol (MCP) server that provides seamless integration with the Kaggle API. Interact with Kaggle competitions, datasets, kernels, and models through MCP-compatible clients like Claude Desktop.
 
-##  Features
+## Features
 
--  **Competitions**: List, download files, submit, view leaderboards and submissions
--  **Datasets**: Search, download, create, and manage datasets with version control
--  **Kernels**: List, push, pull, and manage Kaggle notebooks and scripts
--  **Models**: Create, update, and manage ML models and instances with full version control
+- **Competitions**: List, download files, submit, view leaderboards and submissions
+- **Datasets**: Search, download, create, and manage datasets with version control
+- **Kernels**: List, push, pull, and manage Kaggle notebooks and scripts
+- **Models**: Create, update, and manage ML models and instances with full version control
 
-##  Installation
+## Installation
 
 ### Prerequisites
 
 - Python 3.10 or higher
 - A Kaggle account with API credentials
 
+### Install from PyPI
+
+The recommended way is to run the server with [`uvx`](https://docs.astral.sh/uv/), which handles the install for you:
+
+```bash
+uvx mcp-server-kaggle
+```
+
+Or install it explicitly:
+
+```bash
+pip install mcp-server-kaggle
+# or
+uv tool install mcp-server-kaggle
+```
 
 ### Install from Source
+
+For development or local modifications:
 
 ```bash
 git clone https://github.com/Seif-Sameh/Kaggle-mcp.git
 cd Kaggle-mcp
+uv sync
 ```
 
 ## Setup
@@ -76,21 +100,41 @@ The recommended way to use Kaggle MCP is with Claude Desktop.
 {
   "mcpServers": {
     "kaggle": {
-      "command": "uv",
-      "args": [
-        "--directory",
-        "/ABSOLUTE/PATH/TO/Kaggle-mcp",
-        "run",
-        "kaggle_mcp/server.py"
-      ],
-      "env":{
-          "KAGGLE_USERNAME": "YOUR_KAGGLE_USERNAME",
-          "KAGGLE_API_KEY": "YOUR_KAGGLE_API_KEY"
+      "command": "uvx",
+      "args": ["mcp-server-kaggle"],
+      "env": {
+        "KAGGLE_USERNAME": "YOUR_KAGGLE_USERNAME",
+        "KAGGLE_API_KEY": "YOUR_KAGGLE_API_KEY"
       }
     }
   }
 }
 ```
+
+<details>
+<summary>Running from a local source clone (alternative)</summary>
+
+```json
+{
+  "mcpServers": {
+    "kaggle": {
+      "command": "uv",
+      "args": [
+        "--directory",
+        "/ABSOLUTE/PATH/TO/Kaggle-mcp",
+        "run",
+        "mcp-server-kaggle"
+      ],
+      "env": {
+        "KAGGLE_USERNAME": "YOUR_KAGGLE_USERNAME",
+        "KAGGLE_API_KEY": "YOUR_KAGGLE_API_KEY"
+      }
+    }
+  }
+}
+```
+
+</details>
 
 3. **Restart Claude Desktop**
 
@@ -107,7 +151,7 @@ Try asking Claude:
 Run the MCP server directly:
 
 ```bash
-kaggle-mcp
+mcp-server-kaggle
 ```
 
 Or as a Python module:

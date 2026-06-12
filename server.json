@@ -1,0 +1,36 @@
+{
+  "$schema": "https://static.modelcontextprotocol.io/schemas/2025-12-11/server.schema.json",
+  "name": "io.github.Seif-Sameh/Kaggle-mcp",
+  "description": "MCP server for the Kaggle API: competitions, datasets, kernels, and models.",
+  "repository": {
+    "url": "https://github.com/Seif-Sameh/Kaggle-mcp",
+    "source": "github"
+  },
+  "version": "0.1.1",
+  "packages": [
+    {
+      "registryType": "pypi",
+      "identifier": "mcp-server-kaggle",
+      "version": "0.1.1",
+      "transport": {
+        "type": "stdio"
+      },
+      "environmentVariables": [
+        {
+          "name": "KAGGLE_USERNAME",
+          "description": "Your Kaggle account username",
+          "isRequired": true,
+          "format": "string",
+          "isSecret": false
+        },
+        {
+          "name": "KAGGLE_API_KEY",
+          "description": "Your Kaggle API key (from https://www.kaggle.com/account)",
+          "isRequired": true,
+          "format": "string",
+          "isSecret": true
+        }
+      ]
+    }
+  ]
+}

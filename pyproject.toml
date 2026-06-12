@@ -1,16 +1,45 @@
 [project]
-name = "kaggle-mcp"
-version = "0.1.0"
+name = "mcp-server-kaggle"
+version = "0.1.1"
 description = "A Model Context Protocol (MCP) server for the Kaggle API"
 readme = "README.md"
 requires-python = ">=3.10"
+license = { text = "MIT" }
+authors = [
+    { name = "Seif Sameh", email = "seifsameh2626@gmail.com" }
+]
+keywords = ["mcp", "kaggle", "model-context-protocol", "llm", "ai"]
+classifiers = [
+    "Development Status :: 4 - Beta",
+    "Intended Audience :: Developers",
+    "License :: OSI Approved :: MIT License",
+    "Programming Language :: Python :: 3",
+    "Programming Language :: Python :: 3.10",
+    "Programming Language :: Python :: 3.11",
+    "Programming Language :: Python :: 3.12",
+    "Topic :: Software Development :: Libraries :: Python Modules",
+]
 
-# Core dependencies needed to run the MCP server
 dependencies = [
     "kaggle>=1.7.4.5",
     "fastmcp>=0.1.0",
     "python-dotenv>=1.0.0"
 ]
 
-[tool.uv]
+[project.urls]
+Homepage = "https://github.com/Seif-Sameh/Kaggle-mcp"
+Repository = "https://github.com/Seif-Sameh/Kaggle-mcp"
+Issues = "https://github.com/Seif-Sameh/Kaggle-mcp/issues"
 
+[project.scripts]
+mcp-server-kaggle = "kaggle_mcp.server:main"
+kaggle-mcp = "kaggle_mcp.server:main"
+
+[build-system]
+requires = ["hatchling"]
+build-backend = "hatchling.build"
+
+[tool.hatch.build.targets.wheel]
+packages = ["kaggle_mcp"]
+
+[tool.uv]
